@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<div style="background-color: #F00; color: #FFF" >
+<h1>Java EE 7番</h1>
+</div>
+	<h:form>
+		<h:panelGrid columns="2">
+		ID<h:inputText value="#{indexBean.dispEmp.employeeId}" />
+		姓<h:inputText value="#{indexBean.dispEmp.lastName}" />
+		名<h:inputText value="#{indexBean.dispEmp.firstName}" />
+		E-mail<h:inputText value="#{indexBean.dispEmp.email}" />
+		入社日<h:inputText value="#{indexBean.dispEmp.hireDate}" >
+			<f:convertDateTime pattern="yyyy/M/d" />
+			</h:inputText>
+		JOB<h:selectOneMenu value="#{indexBean.dispEmp.job.jobId}">
+			<f:selectItems value="#{indexBean.jobs}" />
+		</h:selectOneMenu>
+		所属<h:selectOneMenu value="#{indexBean.dispEmp.department.departmentId}">
+			<f:selectItems value="#{indexBean.deps}" />
+		</h:selectOneMenu>
+		
+		</h:panelGrid>
+		<h:commandButton value="参照" action="#{indexBean.actionGetEmp()}"/><br/>
+		<h:commandButton value="追加" action="#{indexBean.actionCreateEmp()}"/>
+		<h:commandButton value="更新" action="#{indexBean.actionUpdateEmp()}"/>
+		<h:commandButton value="削除" action="#{indexBean.actionRemoveEmp()}"/>
+	</h:form>
+</body> 
+</html>
